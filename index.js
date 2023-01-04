@@ -25,12 +25,11 @@ async function run() {
             res.send(result)
         })
 
-        app.post = ('/storeSeceltor', async (req, res) => {
-            const query = req.body;
+        app.post('/storeSector', async (req, res) => {
+            const query = req.body
             const result = await storedSector.insertOne(query)
             res.send(result)
         })
-
 
 
     }
