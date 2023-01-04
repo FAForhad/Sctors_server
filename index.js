@@ -16,7 +16,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
     try {
         const sectorCollections = client.db('DataSectors').collection('sectors')
-
+        const storedSector = client.db('DataSectors').collection('StoredSector')
 
 
         app.get('/sectors', async (req, res) => {
@@ -24,6 +24,13 @@ async function run() {
             const result = await sectorCollections.find(query).toArray()
             res.send(result)
         })
+
+        app.post = ('/storeSeceltor', async (req, res) => {
+            const query = req.body;
+            const result = await storedSector.insertOne(query)
+            res.send(result)
+        })
+
 
 
     }
