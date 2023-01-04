@@ -31,6 +31,12 @@ async function run() {
             res.send(result)
         })
 
+        app.get('/allSectors', async (req, res) => {
+            const query = {}
+            const result = await storedSector.find(query).toArray()
+            res.send(result)
+        })
+
 
     }
     finally {
